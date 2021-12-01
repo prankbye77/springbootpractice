@@ -1,0 +1,57 @@
+spring:
+  profiles:
+    include: oauth
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: qwer1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+  servlet:
+    multipart:
+      enabled: true
+      location: C:\hive_java\Study\test\guestbook\src\main\resources\upload
+      max-request-size: 30MB
+      max-file-size: 10MB
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 681117384514-rpg8n6u9g82nh50j1sdv0c034s23d6ug.apps.googleusercontent.com
+            client-secret: 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
+            scope: email
+
+server:
+  servlet:
+    session:
+      tracking-modes: cookie
+
+upload:
+  path: C:\hive_java\Study\test\guestbook\src\main\resources\upload
+
+logging:
+  level:
+    org.springframework.security.web: trace
+    org.zerock: debug
